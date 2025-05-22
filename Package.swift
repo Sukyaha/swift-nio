@@ -1,4 +1,4 @@
-// swift-tools-version:5.9
+// swift-tools-version:5.10
 //===----------------------------------------------------------------------===//
 //
 // This source file is part of the SwiftNIO open source project
@@ -424,7 +424,8 @@ let package = Package(
                 "NIOHTTP1",
                 "NIOFoundationCompat",
                 "NIOWebSocket",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .executableTarget(
             name: "NIOCrashTester",
@@ -435,7 +436,8 @@ let package = Package(
                 "NIOHTTP1",
                 "NIOWebSocket",
                 "NIOFoundationCompat",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "NIOCoreTests",
@@ -444,6 +446,7 @@ let package = Package(
                 "NIOCore",
                 "NIOEmbedded",
                 "NIOFoundationCompat",
+                "NIOTestUtils",
                 swiftAtomics,
             ],
             swiftSettings: strictConcurrencySettings
@@ -469,7 +472,8 @@ let package = Package(
                 "CNIOLinux",
                 "CNIODarwin",
                 "NIOTLS",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "NIOConcurrencyHelpersTests",
@@ -498,7 +502,8 @@ let package = Package(
                 "NIOHTTP1",
                 "NIOFoundationCompat",
                 "NIOTestUtils",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "NIOTLSTests",
@@ -508,7 +513,8 @@ let package = Package(
                 "NIOTLS",
                 "NIOFoundationCompat",
                 "NIOTestUtils",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "NIOWebSocketTests",
@@ -516,7 +522,8 @@ let package = Package(
                 "NIOCore",
                 "NIOEmbedded",
                 "NIOWebSocket",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "NIOTestUtilsTests",
@@ -525,7 +532,8 @@ let package = Package(
                 "NIOCore",
                 "NIOEmbedded",
                 "NIOPosix",
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "NIOFoundationCompatTests",
