@@ -1,26 +1,29 @@
-### Project Structure
+# Project Structure
 
 1. **Create a Project Directory**
-   ```bash
-   mkdir sushumna_simulation
-   cd sushumna_simulation
-   ```
+
+    ```bash
+    mkdir sushumna_simulation
+    cd sushumna_simulation
+    ```
 
 2. **Set Up a Virtual Environment (Optional but Recommended)**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
 3. **Install Required Libraries**
-   ```bash
-   pip install numpy sympy matplotlib
-   ```
+
+    ```bash
+    pip install numpy sympy matplotlib
+    ```
 
 4. **Create the Main Python Script**
-   Create a file named `sushumna_simulation.py` in the project directory.
+    Create a file named `sushumna_simulation.py` in the project directory.
 
-### Code Implementation
+## Code Implementation
 
 Here’s a basic implementation of the simulation and visualization:
 
@@ -36,39 +39,39 @@ KATAPAYADI_PI = 3.14159265358979323846  # Pi value
 
 # Function to generate Katapayadi Pi fractals
 def katapayadi_fractal(n):
-    # This is a placeholder for the actual fractal generation logic
-    # For demonstration, we will use a simple sine wave pattern
-    t = np.linspace(0, 2 * np.pi, 100)
-    return np.sin(n * t)
+     # This is a placeholder for the actual fractal generation logic
+     # For demonstration, we will use a simple sine wave pattern
+     t = np.linspace(0, 2 * np.pi, 100)
+     return np.sin(n * t)
 
 # Function to model Sushumna's ascent
 def sushumna_ascent(dimensions):
-    # Create a 13D array to represent the ascent
-    ascent = np.zeros((dimensions, 100))
-    for i in range(dimensions):
-        ascent[i] = katapayadi_fractal(i + 1) * (SUSHUMNA_LENGTH / (i + 1))
-    return ascent
+     # Create a 13D array to represent the ascent
+     ascent = np.zeros((dimensions, 100))
+     for i in range(dimensions):
+          ascent[i] = katapayadi_fractal(i + 1) * (SUSHUMNA_LENGTH / (i + 1))
+     return ascent
 
 # Function to visualize the mantra wheel
 def visualize_mandala(ascent):
-    fig, ax = plt.subplots(figsize=(8, 8), subplot_kw={'projection': 'polar'})
-    num_points = ascent.shape[1]
-    theta = np.linspace(0, 2 * np.pi, num_points)
+     fig, ax = plt.subplots(figsize=(8, 8), subplot_kw={'projection': 'polar'})
+     num_points = ascent.shape[1]
+     theta = np.linspace(0, 2 * np.pi, num_points)
 
-    for i in range(ascent.shape[0]):
-        ax.plot(theta, ascent[i], label=f'Dimension {i + 1}')
+     for i in range(ascent.shape[0]):
+          ax.plot(theta, ascent[i], label=f'Dimension {i + 1}')
 
-    ax.set_title("Sushumna's 33.333 Ascent with Katapayadi Pi Fractals")
-    ax.legend(loc='upper right')
-    plt.show()
+     ax.set_title("Sushumna's 33.333 Ascent with Katapayadi Pi Fractals")
+     ax.legend(loc='upper right')
+     plt.show()
 
 # Main function to run the simulation
 def main():
-    ascent = sushumna_ascent(NUM_DIMENSIONS)
-    visualize_mandala(ascent)
+     ascent = sushumna_ascent(NUM_DIMENSIONS)
+     visualize_mandala(ascent)
 
 if __name__ == "__main__":
-    main()
+     main()
 ```
 
 ### Explanation of the Code

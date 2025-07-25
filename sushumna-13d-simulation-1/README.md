@@ -1,18 +1,21 @@
-### Project Structure
+# Project Structure
 
 1. **Create a Project Directory**
+
    ```bash
    mkdir sushumna_simulation
    cd sushumna_simulation
    ```
 
 2. **Set Up a Virtual Environment (Optional but Recommended)**
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
 
 3. **Install Required Libraries**
+
    ```bash
    pip install numpy sympy matplotlib
    ```
@@ -20,7 +23,7 @@
 4. **Create the Main Python Script**
    Create a file named `sushumna_simulation.py` in the project directory.
 
-### Code Implementation
+## Code Implementation
 
 Here’s a basic implementation of the simulation and visualization:
 

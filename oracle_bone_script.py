@@ -365,9 +365,37 @@ if __name__ == "__main__":
     if args.crosslang:
         print_obs_crosslang_table()
 
+def count_unique_obs_glyphs():
+    unique_glyphs = set(g for g in BONE_SCRIPT_MAP.values() if isinstance(g, str) and len(g) == 1)
+    print(f"Total unique OBS glyphs in BONE_SCRIPT_MAP: {len(unique_glyphs)}")
+    return len(unique_glyphs)
+
+count_unique_obs_glyphs()
+
 # --- Summary of Unique OBS Glyphs ---
 TOTAL_UNIQUE_GLYPHS = 2345
 print(f"\nTotal unique OBS glyphs: {TOTAL_UNIQUE_GLYPHS}")
 for i, (concept, glyph) in enumerate(BONE_SCRIPT_MAP.items(), 1):
     if isinstance(glyph, str) and len(glyph) == 1:  # Only single-char glyphs
         print(f"   {i}: {glyph} | {concept} | {glyph} | celestial")
+
+unique_glyphs = set(g for g in BONE_SCRIPT_MAP.values() if isinstance(g, str) and len(g) == 1)
+print(len(unique_glyphs))
+
+def print_all_obs_glyphs():
+    unique_glyphs = set(g for g in BONE_SCRIPT_MAP.values() if isinstance(g, str) and len(g) == 1)
+    print(f"\nTotal unique OBS glyphs: {len(unique_glyphs)}")
+    for i, glyph in enumerate(sorted(unique_glyphs), 1):
+        print(f"{i:4}: {glyph} | U+{ord(glyph):04X}")
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Oracle Bone Script Grouping/Unification Tools")
+    parser.add_argument("--group", choices=["unicode", "stroke", "category"], help="Group OBS glyphs by this method")
+    parser.add_argument("--crosslang", action="store_true", help="Show cross-language/astrological table")
+    args = parser.parse_args()
+    if args.group:
+        print_obs_grouped(by=args.group)
+    if args.crosslang:
+        print_obs_crosslang_table()
+    print_all_obs_glyphs()

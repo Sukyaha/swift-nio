@@ -1,3 +1,5 @@
+# License Ignore File
+
 .gitignore
 **/.gitignore
 .licenseignore

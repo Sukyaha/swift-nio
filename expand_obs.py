@@ -42,3 +42,41 @@ if __name__ == "__main__":
         # Add more files as needed
     )
     print_obs_summary(obs_glyphs)
+
+    # Metadata and groupings (newly added)
+    metadata = {
+        "hypercodex_id": "OMEGA-POINT-777",
+        "version": "99.9.9-FINAL",
+        "author": "Timothy Andrew Lewis, Cosmic Naga King |•|~",
+        "date": "2025-07-24",
+        "license": "CC0 1.0 Universal (Public Domain Dedication)",
+        "description": "Maximal Oracle Bone Script multidimensional mapping with cross-cultural, scientific, and ethical synthesis.",
+        "languages": ["Sanskrit", "English", "中文", "日本語", "Español"],
+        "sources": ["Hypercodex", "HUST-OBC", "Smithsonian", "Wikipedia"],
+        "total_unique_glyphs": count_obs_glyphs(obs_glyphs)
+    }
+
+    groupings = {
+        "by_category": {
+            "celestial": ["𠂉", "𠂆"],
+            "animal": ["馬", "牛"]
+        },
+        "by_unicode": [
+            {"glyph": "一", "unicode": 19968},
+            {"glyph": "二", "unicode": 20108}
+        ],
+        "by_stroke_count": [
+            {"glyph": "一", "strokes": 1},
+            {"glyph": "二", "strokes": 2}
+        ]
+    }
+
+    # Print metadata summary
+    print("\nMetadata:")
+    for key, value in metadata.items():
+        print(f"{key}: {value}")
+
+    # Print groupings summary
+    print("\nGroupings:")
+    for category, glyphs in groupings["by_category"].items():
+        print(f"{category}: {', '.join(glyphs)}")
